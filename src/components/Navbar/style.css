@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  align-items: center;
+
+  position: fixed;
+  background-color: var(--blue);
+  height: 80px;
+  width: 100%;
+  top: 0;
+}
+
+.navbar-text {
+  color: #fff;
+  letter-spacing: 5px;
+  margin-left: 30px;
+  font-size: 1.5rem;
+}

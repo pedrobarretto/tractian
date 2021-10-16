@@ -1,11 +1,9 @@
 import React from 'react';
+import Home from './components';
+import './styles/global.css';
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Stro</h1>
-    </div>
-  );
-}
+  return <Home />;
+};
 
 export default App;

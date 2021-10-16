@@ -1,0 +1,12 @@
+:root {
+  --blue: #1F3577;
+  --success: #00FF57;
+  --danger: #FF5050;
+  --warning: #FFA800;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans';
+}
