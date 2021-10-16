@@ -9,10 +9,11 @@ import Navbar from './Navbar/Navbar';
 function Home() {
   const [assets, setAssets] = useState<Assets[]>([]);
   const [model, setModel] = useState<Assets>(assets[0]);
-  
+
   const init = async () => {
-    const x: any = await getAssets();
-    setAssets(x);
+    const res: any = await getAssets();
+    const assets: Assets[] = [...res];
+    setAssets(assets);
   }
 
   const setFirstAsset = () => {
@@ -26,6 +27,10 @@ function Home() {
   useEffect(() => {
     setFirstAsset();
   }, [assets]);
+
+  useEffect(() => {
+    console.log(model);
+  }, [model]);
 
   return (
     <>
@@ -41,7 +46,7 @@ function Home() {
         {
           assets.map(asset => {
             return (
-              <Asset asset={asset} />
+              <Asset asset={asset} setModel={setModel} />
             )
           })
         }

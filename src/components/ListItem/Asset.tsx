@@ -5,6 +5,7 @@ import './style.css'
 
 interface AssetProps {
   asset: Assets;
+  setModel(model: Assets): void;
 }
 
 function Asset(props: AssetProps) {
@@ -22,13 +23,17 @@ function Asset(props: AssetProps) {
     return '#fff';
   };
 
+  const handleAsset = () => {
+    props.setModel(props.asset);
+  };
+
   useEffect(() => {
     const color = colorStatus();
     setBackground(color);
   }, []);
 
   return (
-    <ListItem className='asset' style={{ backgroundColor: background }}>
+    <ListItem className='asset' style={{ backgroundColor: background }} onClick={handleAsset}>
       <h1 className='asset-name'>{props.asset.model}</h1>
       <h1 className='asset-name'>{props.asset.name}</h1>
       <h1 className='asset-name'>{props.asset.healthscore}%</h1>
