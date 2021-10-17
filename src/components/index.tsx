@@ -1,10 +1,17 @@
-import { Container, List } from '@material-ui/core';
+import { List } from '@material-ui/core';
 import Box from '@material-ui/system/Box';
 import React, { useEffect, useState } from 'react';
 import Assets from '../interfaces/assets';
+import Companies from '../interfaces/companies';
+import Units from '../interfaces/units';
+import Users from '../interfaces/users';
 import { getAssets } from '../services/assetsService';
+import { getCompanies } from '../services/companiesService';
+import { getUnits } from '../services/unitsService';
+import { getUsers } from '../services/usersService';
 import AssetData from './AssetData/AssetData';
 import Asset from './ListItem/Asset';
+import MaintanceForm from './Form/Form';
 
 import Navbar from './Navbar/Navbar';
 
@@ -20,12 +27,24 @@ function Home() {
   const [auxAssets, setAuxAssets] = useState<Assets[]>([]);
   const [model, setModel] = useState<Assets>({} as Assets);
 
+  const [companies, setCompanies] = useState<Companies[]>([]);
+  const [users, setUsers] = useState<Users[]>([]);
+  const [units, setUnits] = useState<Units[]>([]);
+
   const init = async () => {
-    const res: any = await getAssets();
-    const assets: Assets[] = [...res];
+    const assetsRes: any = await getAssets();
+    const companiesRes: any = await getCompanies();
+    const usersRes: any = await getUsers();
+    const unitsRes: any = await getUnits();
+
+    const assets: Assets[] = [...assetsRes];
     assets.sort((a, b) => a.healthscore - b.healthscore);
     setAuxAssets(assets);
     setAssets(assets);
+
+    setCompanies(companiesRes);
+    setUsers(usersRes);
+    setUnits(unitsRes);
   };
 
   const handleFilter = (option: filterOptions) => {
@@ -85,7 +104,6 @@ function Home() {
   }
 
   const setFirstAsset = () => {
-    console.log('setando model...')
     setModel(assets[0]);
   };
 
@@ -96,10 +114,6 @@ function Home() {
   useEffect(() => {
     setFirstAsset();
   }, [assets]);
-
-  useEffect(() => {
-    console.log(model);
-  }, [model]);
 
   return (
     <>
@@ -128,9 +142,17 @@ function Home() {
             }
           </List>
         </Box>
-        <Container>
+
+        <div style={{ 
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          marginLeft: '100px'
+         }}>
+          <MaintanceForm companies={companies} users={users} units={units} />
           <AssetData asset={model} />
-        </Container>
+        </div>
       </div>
     </>
   );
