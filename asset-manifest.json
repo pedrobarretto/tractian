@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/tractian/static/css/main.ba08560d.chunk.css",
+    "main.js": "/tractian/static/js/main.cc054c98.chunk.js",
+    "main.js.map": "/tractian/static/js/main.cc054c98.chunk.js.map",
+    "runtime-main.js": "/tractian/static/js/runtime-main.4a92c0d3.js",
+    "runtime-main.js.map": "/tractian/static/js/runtime-main.4a92c0d3.js.map",
+    "static/js/2.7ec005a8.chunk.js": "/tractian/static/js/2.7ec005a8.chunk.js",
+    "static/js/2.7ec005a8.chunk.js.map": "/tractian/static/js/2.7ec005a8.chunk.js.map",
+    "index.html": "/tractian/index.html",
+    "static/css/main.ba08560d.chunk.css.map": "/tractian/static/css/main.ba08560d.chunk.css.map",
+    "static/js/2.7ec005a8.chunk.js.LICENSE.txt": "/tractian/static/js/2.7ec005a8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4a92c0d3.js",
+    "static/js/2.7ec005a8.chunk.js",
+    "static/css/main.ba08560d.chunk.css",
+    "static/js/main.cc054c98.chunk.js"
+  ]
+}
