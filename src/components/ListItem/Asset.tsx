@@ -30,7 +30,7 @@ function Asset(props: AssetProps) {
   useEffect(() => {
     const color = colorStatus();
     setBackground(color);
-  }, []);
+  }, [props]);
 
   return (
     <ListItem className='asset' style={{ backgroundColor: background }} onClick={handleAsset}>
